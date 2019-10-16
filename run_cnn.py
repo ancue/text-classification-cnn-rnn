@@ -139,7 +139,7 @@ def train():
             break
 
 
-def test():
+def test(config):
     print("Loading test data...")
     start_time = time.time()
     x_test, y_test = process_file(test_dir, word_to_id, cat_to_id, config.seq_length)
@@ -203,4 +203,4 @@ if __name__ == '__main__':
     if sys.argv[1] == 'train':
         train()
     else:
-        test()
+        test(config)
