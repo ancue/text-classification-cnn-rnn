@@ -82,7 +82,12 @@ def train():
     print("Time usage:", time_dif)
 
     # 创建session
-    session = tf.Session()
+    config = tf.ConfigProto()
+    # 按需分配显存
+    config.gpu_options.allow_growth = True
+    config.allow_soft_placement = True
+
+    session = tf.Session(config=config)
     session.run(tf.global_variables_initializer())
     writer.add_graph(session.graph)
 
