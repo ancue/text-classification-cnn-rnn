@@ -56,7 +56,7 @@ def evaluate(sess, x_, y_):
     return total_loss / data_len, total_acc / data_len
 
 
-def train():
+def train(config):
     print("Configuring TensorBoard and Saver...")
     # 配置 Tensorboard，重新训练时，请将tensorboard文件夹删除，不然图会覆盖
     tensorboard_dir = 'tensorboard/textrnn'
@@ -207,6 +207,6 @@ if __name__ == '__main__':
     model = TextRNN(config)
 
     if sys.argv[1] == 'train':
-        train()
+        train(config)
     else:
         test(config)
