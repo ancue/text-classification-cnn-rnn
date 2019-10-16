@@ -148,7 +148,14 @@ def test():
     start_time = time.time()
     x_test, y_test = process_file(test_dir, word_to_id, cat_to_id, config.seq_length)
 
-    session = tf.Session()
+
+    # 创建session
+    config = tf.ConfigProto()
+    # 按需分配显存
+    config.gpu_options.allow_growth = True
+    config.allow_soft_placement = True
+
+    session = tf.Session(config=config)
     session.run(tf.global_variables_initializer())
     saver = tf.train.Saver()
     saver.restore(sess=session, save_path=save_path)  # 读取保存的模型
