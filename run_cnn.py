@@ -174,13 +174,13 @@ def test(config):
         y_pred_cls[start_id:end_id] = session.run(model.y_pred_cls, feed_dict=feed_dict)
 
     # 评估
-    print("Precision, Recall and F1-Score...")
-    print(metrics.classification_report(y_test_cls, y_pred_cls, target_names=categories))
+    # print("Precision, Recall and F1-Score...")
+    # print(metrics.classification_report(y_test_cls, y_pred_cls, target_names=categories))
 
     # 混淆矩阵
-    print("Confusion Matrix...")
-    cm = metrics.confusion_matrix(y_test_cls, y_pred_cls)
-    print(cm)
+    # print("Confusion Matrix...")
+    # cm = metrics.confusion_matrix(y_test_cls, y_pred_cls)
+    # print(cm)
 
     time_dif = get_time_dif(start_time)
     print("Time usage:", time_dif)
